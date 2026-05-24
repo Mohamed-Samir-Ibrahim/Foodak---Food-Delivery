@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodak_food_delivery/pages/home_page.dart';
+import 'package:foodak_food_delivery/pages/bottom_nav_bar_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,9 +11,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Foodak - Food Delivery',
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
-      home: HomePage(),
+      home: BottomNavBarPage(),
     );
   }
 }
