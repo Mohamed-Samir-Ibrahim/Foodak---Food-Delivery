@@ -55,7 +55,7 @@ class _FoodGridItemState extends State<FoodGridItem> {
                           });
                         },
                         child: Icon(
-                          isFavorite == true
+                          food[widget.foodIndex].isFavorite
                               ? Icons.favorite
                               : Icons.favorite_border,
                           color: Colors.deepOrange,

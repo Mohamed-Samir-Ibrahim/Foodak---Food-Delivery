@@ -26,15 +26,46 @@ class AccountPage extends StatelessWidget {
       );
     }
 
+    Widget onTileTapped({
+      required String title,
+      required IconData icon,
+      String? suTitle,
+    }) {
+      return ListTile(
+        onTap: () => debugPrint('$title tapped'),
+        leading: Icon(
+          icon,
+          color: Colors.deepOrange,
+          size: MediaQuery
+              .of(context)
+              .size
+              .width * 0.05,
+        ),
+        title: Text(title),
+        subtitle: suTitle != null ? Text(suTitle) : null,
+        trailing: Icon(
+          Icons.chevron_right,
+          color: Colors.deepOrange,
+          size: MediaQuery
+              .of(context)
+              .size
+              .width * 0.04,
+        ),
+      );
+    }
+
     return Column(
       children: [
         Container(
-          height: MediaQuery.of(context).size.height * 0.4,
+          height: MediaQuery
+              .of(context)
+              .size
+              .height * 0.3,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             image: DecorationImage(
               image: AssetImage('assets/images/mohamed.jpg'),
-              fit: BoxFit.cover,
+              fit: BoxFit.contain,
             ),
           ),
         ),
@@ -53,6 +84,56 @@ class AccountPage extends StatelessWidget {
             orderVoucherItems(name: 'Orders', number: 50),
             orderVoucherItems(name: 'Vouchers', number: 10),
           ],
+        ),
+        Divider(
+          thickness: MediaQuery
+              .of(context)
+              .size
+              .width * 0.002,
+          indent: MediaQuery
+              .of(context)
+              .size
+              .width * 0.016,
+          endIndent: MediaQuery
+              .of(context)
+              .size
+              .width * 0.016,
+        ),
+        onTileTapped(
+          title: 'Past Orders',
+          icon: Icons.shopping_cart,
+        ),
+        Divider(
+          thickness: MediaQuery
+              .of(context)
+              .size
+              .width * 0.002,
+          indent: MediaQuery
+              .of(context)
+              .size
+              .width * 0.016,
+          endIndent: MediaQuery
+              .of(context)
+              .size
+              .width * 0.016,
+        ),
+        onTileTapped(
+          title: 'Available Vouchers',
+          icon: Icons.card_giftcard,
+        ),
+        Divider(
+          thickness: MediaQuery
+              .of(context)
+              .size
+              .width * 0.002,
+          indent: MediaQuery
+              .of(context)
+              .size
+              .width * 0.016,
+          endIndent: MediaQuery
+              .of(context)
+              .size
+              .width * 0.016,
         ),
       ],
     );
