@@ -16,7 +16,7 @@ class _FavoritePageState extends State<FavoritePage> {
         .where((foodItem) => foodItem.isFavorite == true)
         .toList();
 
-    return favoriteFood.isEmpty
+    return favoriteFood.isNotEmpty
         ? Padding(
             padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.016),
             child: ListView.builder(
