@@ -5,6 +5,9 @@ class AccountPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery
+        .of(context)
+        .size;
     Widget orderVoucherItems({required String name, required int number}) {
       return Column(
         children: [
@@ -26,12 +29,12 @@ class AccountPage extends StatelessWidget {
     }) {
       return ListTile(
         onTap: () => debugPrint('$title tapped'),
-        leading: Icon(icon, size: MediaQuery.of(context).size.width * 0.05),
+        leading: Icon(icon, size: size.width * 0.05),
         title: Text(title),
         subtitle: suTitle != null ? Text(suTitle) : null,
         trailing: Icon(
           Icons.chevron_right,
-          size: MediaQuery.of(context).size.width * 0.04,
+          size: size.width * 0.04,
         ),
       );
     }
@@ -39,7 +42,7 @@ class AccountPage extends StatelessWidget {
     return Column(
       children: [
         Container(
-          height: MediaQuery.of(context).size.height * 0.3,
+          height: size.height * 0.3,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             image: DecorationImage(
@@ -48,14 +51,14 @@ class AccountPage extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: MediaQuery.of(context).size.height * 0.016),
+        SizedBox(height: size.height * 0.016),
         Text(
           'Mohamed Samir',
           style: Theme.of(
             context,
           ).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.w600),
         ),
-        SizedBox(height: MediaQuery.of(context).size.height * 0.016),
+        SizedBox(height: size.height * 0.016),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [

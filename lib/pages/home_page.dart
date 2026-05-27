@@ -7,8 +7,9 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Padding(
-      padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.016),
+      padding: EdgeInsets.all(size.width * 0.016),
       child: SingleChildScrollView(
         child: Column(
           children: [
@@ -17,17 +18,17 @@ class HomePage extends StatelessWidget {
               child: Image.asset(
                 'assets/images/classic_burger.jpg',
                 fit: BoxFit.cover,
-                height: MediaQuery.of(context).size.height * 0.2,
+                height: size.height * 0.2,
               ),
             ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.08),
+            SizedBox(height: size.height * 0.08),
             GridView.builder(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                mainAxisSpacing: MediaQuery.of(context).size.height * 0.012,
-                crossAxisSpacing: MediaQuery.of(context).size.width * 0.012,
+                mainAxisSpacing: size.height * 0.012,
+                crossAxisSpacing: size.width * 0.012,
               ),
               itemCount: food.length,
               itemBuilder: (context, index) {

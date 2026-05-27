@@ -32,6 +32,7 @@ class MyApp extends StatelessWidget {
           endIndent: MediaQuery.of(context).size.width * 0.010,
         ),
         listTileTheme: ListTileThemeData(iconColor: Colors.deepOrange),
+          fontFamily: 'OpenSans'
       ),
       home: BottomNavBarPage(),
     );

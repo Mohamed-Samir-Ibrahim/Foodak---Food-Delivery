@@ -12,13 +12,16 @@ class FavoritePage extends StatefulWidget {
 class _FavoritePageState extends State<FavoritePage> {
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery
+        .of(context)
+        .size;
     final favoriteFood = food
         .where((foodItem) => foodItem.isFavorite == true)
         .toList();
 
     return favoriteFood.isNotEmpty
         ? Padding(
-            padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.016),
+      padding: EdgeInsets.all(size.width * 0.016),
             child: ListView.builder(
               itemCount: favoriteFood.length,
               itemBuilder: (context, index) {
@@ -28,18 +31,18 @@ class _FavoritePageState extends State<FavoritePage> {
                   ),
                   child: Padding(
                     padding: EdgeInsets.all(
-                      MediaQuery.of(context).size.width * 0.016,
+                      size.width * 0.016,
                     ),
                     child: Row(
                       children: [
                         Image.asset(
                           favoriteFood[index].imageUrl,
-                          height: MediaQuery.of(context).size.height * 0.07,
-                          width: MediaQuery.of(context).size.width * 0.1,
+                          height: size.height * 0.07,
+                          width: size.width * 0.1,
                           fit: BoxFit.contain,
                         ),
                         SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.04,
+                          width: size.width * 0.04,
                         ),
                         Expanded(
                           child: Column(
@@ -51,7 +54,7 @@ class _FavoritePageState extends State<FavoritePage> {
                               ),
                               SizedBox(
                                 height:
-                                    MediaQuery.of(context).size.height * 0.008,
+                                size.height * 0.008,
                               ),
                               Text(
                                 '\$ ${favoriteFood[index].price}',
@@ -77,7 +80,7 @@ class _FavoritePageState extends State<FavoritePage> {
                           icon: Icon(
                             Icons.favorite,
                             color: Theme.of(context).primaryColor,
-                            size: MediaQuery.of(context).size.width * 0.05,
+                            size: size.width * 0.05,
                           ),
                         ),
                       ],
@@ -93,7 +96,7 @@ class _FavoritePageState extends State<FavoritePage> {
                 Image.asset(
                   'assets/images/empty_state.png',
                   fit: BoxFit.cover,
-                  height: MediaQuery.of(context).size.height * 0.35,
+                  height: size.height * 0.35,
                 ),
                 Text(
                   'No Items Found!',
