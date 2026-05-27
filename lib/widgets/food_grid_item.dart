@@ -58,7 +58,7 @@ class _FoodGridItemState extends State<FoodGridItem> {
                           food[widget.foodIndex].isFavorite
                               ? Icons.favorite
                               : Icons.favorite_border,
-                          color: Colors.deepOrange,
+                          color: Theme.of(context).primaryColor,
                         ),
                       ),
                     ),
@@ -80,7 +80,7 @@ class _FoodGridItemState extends State<FoodGridItem> {
               style: TextStyle(
                 fontSize: MediaQuery.of(context).textScaler.scale(18),
                 fontWeight: FontWeight.bold,
-                color: Colors.deepOrange,
+                color: Theme.of(context).primaryColor,
               ),
             ),
           ],

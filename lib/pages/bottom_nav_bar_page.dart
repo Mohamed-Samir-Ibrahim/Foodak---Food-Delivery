@@ -44,7 +44,7 @@ class _BottomNavBarPageState extends State<BottomNavBarPage> {
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Account'),
         ],
         currentIndex: currentIndex,
-        selectedItemColor: Colors.deepOrange,
+        selectedItemColor: Theme.of(context).primaryColor,
         onTap: onItemTapped,
       ),
     );

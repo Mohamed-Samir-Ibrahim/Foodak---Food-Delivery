@@ -13,7 +13,9 @@ class AccountPage extends StatelessWidget {
             style: TextStyle(
               fontSize: MediaQuery.of(context).textScaler.scale(30),
               fontWeight: FontWeight.w600,
-              color: Colors.deepOrange,
+              color: Theme
+                  .of(context)
+                  .primaryColor,
             ),
           ),
           Text(
@@ -35,7 +37,9 @@ class AccountPage extends StatelessWidget {
         onTap: () => debugPrint('$title tapped'),
         leading: Icon(
           icon,
-          color: Colors.deepOrange,
+          color: Theme
+              .of(context)
+              .primaryColor,
           size: MediaQuery
               .of(context)
               .size
@@ -45,7 +49,9 @@ class AccountPage extends StatelessWidget {
         subtitle: suTitle != null ? Text(suTitle) : null,
         trailing: Icon(
           Icons.chevron_right,
-          color: Colors.deepOrange,
+          color: Theme
+              .of(context)
+              .primaryColor,
           size: MediaQuery
               .of(context)
               .size
