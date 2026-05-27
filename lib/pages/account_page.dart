@@ -37,9 +37,6 @@ class AccountPage extends StatelessWidget {
         onTap: () => debugPrint('$title tapped'),
         leading: Icon(
           icon,
-          color: Theme
-              .of(context)
-              .primaryColor,
           size: MediaQuery
               .of(context)
               .size
@@ -49,9 +46,6 @@ class AccountPage extends StatelessWidget {
         subtitle: suTitle != null ? Text(suTitle) : null,
         trailing: Icon(
           Icons.chevron_right,
-          color: Theme
-              .of(context)
-              .primaryColor,
           size: MediaQuery
               .of(context)
               .size
@@ -91,56 +85,17 @@ class AccountPage extends StatelessWidget {
             orderVoucherItems(name: 'Vouchers', number: 10),
           ],
         ),
-        Divider(
-          thickness: MediaQuery
-              .of(context)
-              .size
-              .width * 0.002,
-          indent: MediaQuery
-              .of(context)
-              .size
-              .width * 0.016,
-          endIndent: MediaQuery
-              .of(context)
-              .size
-              .width * 0.016,
-        ),
+        Divider(),
         onTileTapped(
           title: 'Past Orders',
           icon: Icons.shopping_cart,
         ),
-        Divider(
-          thickness: MediaQuery
-              .of(context)
-              .size
-              .width * 0.002,
-          indent: MediaQuery
-              .of(context)
-              .size
-              .width * 0.016,
-          endIndent: MediaQuery
-              .of(context)
-              .size
-              .width * 0.016,
-        ),
+        Divider(),
         onTileTapped(
           title: 'Available Vouchers',
           icon: Icons.card_giftcard,
         ),
-        Divider(
-          thickness: MediaQuery
-              .of(context)
-              .size
-              .width * 0.002,
-          indent: MediaQuery
-              .of(context)
-              .size
-              .width * 0.016,
-          endIndent: MediaQuery
-              .of(context)
-              .size
-              .width * 0.016,
-        ),
+        Divider(),
       ],
     );
   }
