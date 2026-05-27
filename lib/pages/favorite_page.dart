@@ -47,12 +47,7 @@ class _FavoritePageState extends State<FavoritePage> {
                             children: [
                               Text(
                                 favoriteFood[index].name,
-                                style: TextStyle(
-                                  fontSize: MediaQuery.of(
-                                    context,
-                                  ).textScaler.scale(22),
-                                  fontWeight: FontWeight.w600,
-                                ),
+                                style: Theme.of(context).textTheme.titleLarge,
                               ),
                               SizedBox(
                                 height:
@@ -60,13 +55,11 @@ class _FavoritePageState extends State<FavoritePage> {
                               ),
                               Text(
                                 '\$ ${favoriteFood[index].price}',
-                                style: TextStyle(
-                                  fontSize: MediaQuery.of(
-                                    context,
-                                  ).textScaler.scale(18),
-                                  fontWeight: FontWeight.w600,
-                                  color: Theme.of(context).primaryColor,
-                                ),
+                                style: Theme.of(context).textTheme.titleLarge
+                                    ?.copyWith(
+                                      color: Theme.of(context).primaryColor,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                               ),
                             ],
                           ),
@@ -104,9 +97,7 @@ class _FavoritePageState extends State<FavoritePage> {
                 ),
                 Text(
                   'No Items Found!',
-                  style: TextStyle(
-                    fontSize: MediaQuery.of(context).textScaler.scale(22),
-                  ),
+                  style: Theme.of(context).textTheme.headlineSmall,
                 ),
               ],
             ),

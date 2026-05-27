@@ -10,20 +10,11 @@ class AccountPage extends StatelessWidget {
         children: [
           Text(
             number.toString(),
-            style: TextStyle(
-              fontSize: MediaQuery.of(context).textScaler.scale(30),
-              fontWeight: FontWeight.w600,
-              color: Theme
-                  .of(context)
-                  .primaryColor,
+            style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+              color: Theme.of(context).primaryColor,
             ),
           ),
-          Text(
-            name,
-            style: TextStyle(
-              fontSize: MediaQuery.of(context).textScaler.scale(18),
-            ),
-          ),
+          Text(name, style: Theme.of(context).textTheme.titleMedium),
         ],
       );
     }
@@ -35,21 +26,12 @@ class AccountPage extends StatelessWidget {
     }) {
       return ListTile(
         onTap: () => debugPrint('$title tapped'),
-        leading: Icon(
-          icon,
-          size: MediaQuery
-              .of(context)
-              .size
-              .width * 0.05,
-        ),
+        leading: Icon(icon, size: MediaQuery.of(context).size.width * 0.05),
         title: Text(title),
         subtitle: suTitle != null ? Text(suTitle) : null,
         trailing: Icon(
           Icons.chevron_right,
-          size: MediaQuery
-              .of(context)
-              .size
-              .width * 0.04,
+          size: MediaQuery.of(context).size.width * 0.04,
         ),
       );
     }
@@ -57,10 +39,7 @@ class AccountPage extends StatelessWidget {
     return Column(
       children: [
         Container(
-          height: MediaQuery
-              .of(context)
-              .size
-              .height * 0.3,
+          height: MediaQuery.of(context).size.height * 0.3,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             image: DecorationImage(
@@ -72,10 +51,9 @@ class AccountPage extends StatelessWidget {
         SizedBox(height: MediaQuery.of(context).size.height * 0.016),
         Text(
           'Mohamed Samir',
-          style: TextStyle(
-            fontSize: MediaQuery.of(context).textScaler.scale(32),
-            fontWeight: FontWeight.w600,
-          ),
+          style: Theme.of(
+            context,
+          ).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.w600),
         ),
         SizedBox(height: MediaQuery.of(context).size.height * 0.016),
         Row(
@@ -86,15 +64,9 @@ class AccountPage extends StatelessWidget {
           ],
         ),
         Divider(),
-        onTileTapped(
-          title: 'Past Orders',
-          icon: Icons.shopping_cart,
-        ),
+        onTileTapped(title: 'Past Orders', icon: Icons.shopping_cart),
         Divider(),
-        onTileTapped(
-          title: 'Available Vouchers',
-          icon: Icons.card_giftcard,
-        ),
+        onTileTapped(title: 'Available Vouchers', icon: Icons.card_giftcard),
         Divider(),
       ],
     );

@@ -43,8 +43,8 @@ class _FoodGridItemState extends State<FoodGridItem> {
                         borderRadius: BorderRadius.all(Radius.circular(16)),
                         color: Colors.white,
                       ),
-                      child: InkWell(
-                        onTap: () {
+                      child: IconButton(
+                        onPressed: () {
                           setState(() {
                             food[widget.foodIndex] = food[widget.foodIndex]
                                 .copyWith(
@@ -54,7 +54,7 @@ class _FoodGridItemState extends State<FoodGridItem> {
                             isFavorite = !isFavorite;
                           });
                         },
-                        child: Icon(
+                        icon: Icon(
                           food[widget.foodIndex].isFavorite
                               ? Icons.favorite
                               : Icons.favorite_border,
@@ -67,19 +67,15 @@ class _FoodGridItemState extends State<FoodGridItem> {
               ],
             ),
 
-            SizedBox(height: MediaQuery.of(context).size.height * 0.04),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.02),
             Text(
               food[widget.foodIndex].name,
-              style: TextStyle(
-                fontSize: MediaQuery.of(context).textScaler.scale(20),
-                fontWeight: FontWeight.w600,
-              ),
+              style: Theme.of(context).textTheme.titleLarge,
             ),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.02),
             Text(
               '\$ ${food[widget.foodIndex].price}',
-              style: TextStyle(
-                fontSize: MediaQuery.of(context).textScaler.scale(18),
-                fontWeight: FontWeight.bold,
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 color: Theme.of(context).primaryColor,
               ),
             ),

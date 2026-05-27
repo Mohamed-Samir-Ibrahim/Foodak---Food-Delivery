@@ -26,8 +26,8 @@ class HomePage extends StatelessWidget {
               physics: NeverScrollableScrollPhysics(),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                mainAxisSpacing: 20,
-                crossAxisSpacing: 20,
+                mainAxisSpacing: MediaQuery.of(context).size.height * 0.012,
+                crossAxisSpacing: MediaQuery.of(context).size.width * 0.012,
               ),
               itemCount: food.length,
               itemBuilder: (context, index) {
