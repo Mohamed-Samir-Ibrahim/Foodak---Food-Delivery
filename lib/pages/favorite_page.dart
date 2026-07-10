@@ -37,8 +37,8 @@ class _FavoritePageState extends State<FavoritePage> {
                       children: [
                         Image.asset(
                           favoriteFood[index].imageUrl,
-                          height: size.height * 0.07,
-                          width: size.width * 0.1,
+                          height: size.height * 0.01,
+                          width: size.width * 0.2,
                           fit: BoxFit.contain,
                         ),
                         SizedBox(
@@ -80,7 +80,7 @@ class _FavoritePageState extends State<FavoritePage> {
                           icon: Icon(
                             Icons.favorite,
                             color: Theme.of(context).primaryColor,
-                            size: size.width * 0.05,
+                            size: size.width * 0.035,
                           ),
                         ),
                       ],

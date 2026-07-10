@@ -18,17 +18,17 @@ class HomePage extends StatelessWidget {
               child: Image.asset(
                 'assets/images/classic_burger.jpg',
                 fit: BoxFit.cover,
-                height: size.height * 0.2,
+                height: size.height * 0.23,
               ),
             ),
-            SizedBox(height: size.height * 0.08),
+            SizedBox(height: size.height * 0.04),
             GridView.builder(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                mainAxisSpacing: size.height * 0.012,
-                crossAxisSpacing: size.width * 0.012,
+                mainAxisSpacing: size.height * 0.02,
+                crossAxisSpacing: size.width * 0.02,
               ),
               itemCount: food.length,
               itemBuilder: (context, index) {

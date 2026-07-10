@@ -29,12 +29,12 @@ class AccountPage extends StatelessWidget {
     }) {
       return ListTile(
         onTap: () => debugPrint('$title tapped'),
-        leading: Icon(icon, size: size.width * 0.05),
+        leading: Icon(icon, size: size.height * 0.03),
         title: Text(title),
         subtitle: suTitle != null ? Text(suTitle) : null,
         trailing: Icon(
           Icons.chevron_right,
-          size: size.width * 0.04,
+          size: size.width * 0.03,
         ),
       );
     }
@@ -42,7 +42,7 @@ class AccountPage extends StatelessWidget {
     return Column(
       children: [
         Container(
-          height: size.height * 0.3,
+          height: size.height * 0.25,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             image: DecorationImage(
