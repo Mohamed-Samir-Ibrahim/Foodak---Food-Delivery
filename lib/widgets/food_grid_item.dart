@@ -24,61 +24,74 @@ class _FoodGridItemState extends State<FoodGridItem> {
       ),
       child: Padding(
         padding: EdgeInsets.all(size.width * 0.016),
-        child: Column(
-          children: [
-            Stack(
-              alignment: Alignment.topCenter,
-              children: [
-                Image.asset(
-                  food[widget.foodIndex].imageUrl,
-                  height: size.height * 0.1,
-                ),
-                Align(
-                  alignment: Alignment.topRight,
-                  child: Container(
-                    height: size.height * 0.075,
-                    width: size.width * 0.075,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(16)),
-                      color: Colors.white,
-                    ),
-                    child: IconButton(
-                      onPressed: () {
-                        setState(() {
-                          food[widget.foodIndex] = food[widget.foodIndex]
-                              .copyWith(
-                                isFavorite: !food[widget.foodIndex].isFavorite,
-                              );
-                          isFavorite = !isFavorite;
-                        });
-                      },
-                      icon: Icon(
-                        food[widget.foodIndex].isFavorite
-                            ? Icons.favorite
-                            : Icons.favorite_border,
-                        color: Theme.of(context).primaryColor,
+        child: LayoutBuilder(
+          builder: (context, constraints) => Column(
+            children: [
+              Stack(
+                alignment: Alignment.topCenter,
+                children: [
+                  Image.asset(
+                    food[widget.foodIndex].imageUrl,
+                    height: size.height * 0.1,
+                  ),
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: Container(
+                      height: size.height * 0.075,
+                      width: size.width * 0.075,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(16)),
+                        color: Colors.white,
+                      ),
+                      child: IconButton(
+                        onPressed: () {
+                          setState(() {
+                            food[widget.foodIndex] = food[widget.foodIndex]
+                                .copyWith(
+                                  isFavorite:
+                                      !food[widget.foodIndex].isFavorite,
+                                );
+                            isFavorite = !isFavorite;
+                          });
+                        },
+                        icon: Icon(
+                          food[widget.foodIndex].isFavorite
+                              ? Icons.favorite
+                              : Icons.favorite_border,
+                          color: Theme.of(context).primaryColor,
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
-            ),
-
-            SizedBox(height: size.height * 0.02),
-            Text(
-              food[widget.foodIndex].name,
-              style: Theme.of(
-                context,
-              ).textTheme.titleLarge?.copyWith(fontFamily: 'OpenSans'),
-            ),
-            SizedBox(height: size.height * 0.02),
-            Text(
-              '\$ ${food[widget.foodIndex].price}',
-              style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                color: Theme.of(context).primaryColor,
+                ],
               ),
-            ),
-          ],
+
+              SizedBox(height: size.height * 0.02),
+                  Text(
+                    food[widget.foodIndex].name,
+                    style: Theme
+                        .of(
+                      context,
+                    )
+                        .textTheme
+                        .titleLarge
+                        ?.copyWith(fontFamily: 'OpenSans'),
+                  ),
+                  SizedBox(height: size.height * 0.02),
+                  Text(
+                    '\$ ${food[widget.foodIndex].price}',
+                    style: Theme
+                        .of(context)
+                        .textTheme
+                        .titleLarge
+                        ?.copyWith(
+                      color: Theme
+                          .of(context)
+                          .primaryColor,
+                    ),
+                  ),
+                ],
+              ),
         ),
       ),
     );
