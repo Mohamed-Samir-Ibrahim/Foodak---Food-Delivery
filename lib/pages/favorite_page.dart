@@ -15,6 +15,10 @@ class _FavoritePageState extends State<FavoritePage> {
     final size = MediaQuery
         .of(context)
         .size;
+    final isLandscape =
+        MediaQuery
+            .of(context)
+            .orientation == Orientation.landscape;
     final favoriteFood = food
         .where((foodItem) => foodItem.isFavorite == true)
         .toList();
@@ -37,7 +41,8 @@ class _FavoritePageState extends State<FavoritePage> {
                       children: [
                         Image.asset(
                           favoriteFood[index].imageUrl,
-                          height: size.height * 0.01,
+                          height: isLandscape ? size.height * 0.2 : size
+                              .height * 0.09,
                           width: size.width * 0.2,
                           fit: BoxFit.contain,
                         ),
@@ -96,7 +101,7 @@ class _FavoritePageState extends State<FavoritePage> {
                 Image.asset(
                   'assets/images/empty_state.png',
                   fit: BoxFit.cover,
-                  height: size.height * 0.35,
+                  height: isLandscape ? size.height * 0.5 : size.height * 0.3,
                 ),
                 Text(
                   'No Items Found!',
