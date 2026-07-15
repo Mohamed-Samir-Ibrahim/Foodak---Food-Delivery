@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/food_item_model.dart';
+import '../widgets/adaptive_fav_button.dart';
 
 class FavoritePage extends StatefulWidget {
   const FavoritePage({super.key});
@@ -72,22 +73,42 @@ class _FavoritePageState extends State<FavoritePage> {
                             ],
                           ),
                         ),
-                        IconButton(
-                          onPressed: () {
-                            final targetedItem = favoriteFood[index];
-                            int targetedIndex = food.indexOf(targetedItem);
-                            setState(() {
-                              food[targetedIndex] = food[targetedIndex]
-                                  .copyWith(isFavorite: false);
-                              favoriteFood.remove(targetedItem);
-                            });
-                          },
-                          icon: Icon(
-                            Icons.favorite,
-                            color: Theme.of(context).primaryColor,
-                            size: size.width * 0.035,
+                        if (!isLandscape)
+                          IconButton(
+                            onPressed: () {
+                              final targetedItem = favoriteFood[index];
+                              int targetedIndex = food.indexOf(targetedItem);
+                              setState(() {
+                                food[targetedIndex] =
+                                    food[targetedIndex].copyWith(
+                                        isFavorite: false);
+                                favoriteFood.remove(targetedItem);
+                              });
+                            },
+                            icon: Icon(
+                              Icons.favorite,
+                              color: Theme
+                                  .of(context)
+                                  .primaryColor,
+                              size:
+                              isLandscape ? size.height * 0.1 : size.height *
+                                  0.035,
+                            ),
                           ),
-                        ),
+                        if (isLandscape)
+                          AdaptiveFavButton(
+                            title: 'Favorited',
+                            onPressed: () {
+                              final targetedItem = favoriteFood[index];
+                              int targetedIndex = food.indexOf(targetedItem);
+                              setState(() {
+                                food[targetedIndex] =
+                                    food[targetedIndex].copyWith(
+                                        isFavorite: false);
+                                favoriteFood.remove(targetedItem);
+                              });
+                            },
+                          ),
                       ],
                     ),
                   ),

@@ -8,6 +8,8 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final isLandscape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
     return Padding(
       padding: EdgeInsets.all(size.width * 0.016),
       child: SingleChildScrollView(
@@ -18,7 +20,7 @@ class HomePage extends StatelessWidget {
               child: Image.asset(
                 'assets/images/classic_burger.jpg',
                 fit: BoxFit.cover,
-                height: size.height * 0.23,
+                height: isLandscape ? size.height * 0.7 : size.height * 0.23,
               ),
             ),
             SizedBox(height: size.height * 0.04),
@@ -26,7 +28,7 @@ class HomePage extends StatelessWidget {
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
+                crossAxisCount: isLandscape ? 4 : 2,
                 mainAxisSpacing: size.height * 0.02,
                 crossAxisSpacing: size.width * 0.02,
               ),
