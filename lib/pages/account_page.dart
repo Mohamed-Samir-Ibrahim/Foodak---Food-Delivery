@@ -8,6 +8,10 @@ class AccountPage extends StatelessWidget {
     final size = MediaQuery
         .of(context)
         .size;
+    final isLandscape =
+        MediaQuery
+            .of(context)
+            .orientation == Orientation.landscape;
     Widget orderVoucherItems({required String name, required int number}) {
       return Column(
         children: [
@@ -29,43 +33,85 @@ class AccountPage extends StatelessWidget {
     }) {
       return ListTile(
         onTap: () => debugPrint('$title tapped'),
-        leading: Icon(icon, size: size.height * 0.03),
+        leading: Icon(
+          icon, size: isLandscape ? size.height * 0.09 : size.height * 0.03,),
         title: Text(title),
         subtitle: suTitle != null ? Text(suTitle) : null,
         trailing: Icon(
           Icons.chevron_right,
-          size: size.width * 0.03,
+          size: isLandscape ? size.height * 0.09 : size.height * 0.03,
         ),
       );
     }
 
     return Column(
       children: [
-        Container(
-          height: size.height * 0.25,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            image: DecorationImage(
-              image: AssetImage('assets/images/mohamed.jpg'),
-              fit: BoxFit.contain,
+        if (isLandscape) ...[
+          Container(
+            height: size.height * 0.25,
+            width: size.width * 0.5,
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              image: DecorationImage(
+                image: AssetImage(
+                  'assets/images/tarek.jpeg',
+                ),
+                fit: BoxFit.cover,
+              ),
             ),
           ),
-        ),
-        SizedBox(height: size.height * 0.016),
-        Text(
-          'Mohamed Samir',
-          style: Theme.of(
-            context,
-          ).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.w600),
-        ),
-        SizedBox(height: size.height * 0.016),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            orderVoucherItems(name: 'Orders', number: 50),
-            orderVoucherItems(name: 'Vouchers', number: 10),
+          Text(
+            'Tarek Alabd',
+            style: Theme
+                .of(context)
+                .textTheme
+                .headlineMedium!
+                .copyWith(
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          const SizedBox(height: 16.0),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              orderVoucherItems(name: 'Orders', number: 50),
+              orderVoucherItems(name: 'Vouchers', number: 10),
+            ],
+          ),
+          const SizedBox(height: 24.0),
+        ] else
+          ...[
+            Container(
+              height: size.height * 0.25,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                  image: AssetImage('assets/images/mohamed.jpg'),
+                  fit: BoxFit.contain,
+                ),
+              ),
+            ),
+            SizedBox(height: size.height * 0.016),
+            Text(
+              'Mohamed Samir',
+              style: Theme
+                  .of(
+                context,
+              )
+                  .textTheme
+                  .headlineMedium
+                  ?.copyWith(fontWeight: FontWeight.w600),
+            ),
+            SizedBox(height: size.height * 0.016),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                orderVoucherItems(name: 'Orders', number: 50),
+                orderVoucherItems(name: 'Vouchers', number: 10),
+              ],
+            ),
           ],
-        ),
+
         Divider(),
         onTileTapped(title: 'Past Orders', icon: Icons.shopping_cart),
         Divider(),
